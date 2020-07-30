@@ -23,10 +23,9 @@ pipeline {
                  
                  sh '''
                     echo "Using multi-line shell script"
+                    chmod +x ./pipeline/basics/simple1/tesh.sh
                     pwd
-                    chmod +x tesh.sh
-                    pwd
-                    ./test.sh
+                    ./pipeline/basics/simple1/tesh.sh
                  '''
             }
         }
