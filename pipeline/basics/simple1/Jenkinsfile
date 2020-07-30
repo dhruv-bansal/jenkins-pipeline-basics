@@ -18,8 +18,11 @@ pipeline {
         }
 
         stage ('current-working-directory') {
-            def PWD = pwd();
-            echo PWD
+            
+            steps {
+                def PWD = pwd();
+                echo PWD
+            }
         }
 
         stage ('Executing shell script') {
