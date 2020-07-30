@@ -26,8 +26,8 @@ pipeline {
                     pwd
                     ls -R
                     ls ./pipeline/basics/simple1
-                    chmod +x ./pipeline/basics/simple1/tesh.sh
-                    ./pipeline/basics/simple1/tesh.sh
+                    chmod +x ./pipeline/basics/simple1/test.sh
+                    ./pipeline/basics/simple1/test.sh
                  '''
             }
         }
