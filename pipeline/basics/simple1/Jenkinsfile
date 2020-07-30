@@ -17,14 +17,6 @@ pipeline {
             }
         }
 
-        stage ('current-working-directory') {
-            
-            steps {
-                def PWD = pwd();
-                echo PWD
-            }
-        }
-
         stage ('Executing shell script') {
 
             steps {
