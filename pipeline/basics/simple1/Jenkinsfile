@@ -23,6 +23,7 @@ pipeline {
                  
                  sh '''
                     echo "Using multi-line shell script"
+                    pwd
                     chmod +x tesh.sh
                     pwd
                     ./test.sh
