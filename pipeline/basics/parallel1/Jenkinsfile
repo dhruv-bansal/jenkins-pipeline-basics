@@ -38,22 +38,12 @@ pipeline {
                     }
                 }
             }
-            steps {
-                echo "This is first demo piple #BUILD_NUMBER and $DEMO_NUMBER"
-            }
         }
 
         stage ('stage-2') {
 
-            input {
-                     message 'Deploy?'
-                     ok 'Do it!'
-                     parameters {
-                         string (name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target Deployment Evironment')
-                     }
-                 }
             steps {
-                 echo "Deploying on environment ${TARGET_ENVIRONMENT}"
+                 echo "Inside stage-2"
             }
         }
     }
