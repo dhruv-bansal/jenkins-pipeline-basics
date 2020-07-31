@@ -11,7 +11,8 @@ pipeline {
         
         stage ('stage-1'){
 
-            agent any
+            // agent is not allowed on stage "stage-1" as it contains parallel or matrix stages
+            // agent any
             environment {
                 LOCAL_STAGE_ENV_VARIABLE = "SOME_VALUE"
             }
@@ -20,21 +21,19 @@ pipeline {
 
                 stage ('parallel 1') {
                     steps {
-                        def current_stage = getCurrentStageName()
-                        echo "Stage: $current_stage"
+                        // WorkflowScript: 36: Expected a step @ line 36, column 25
+                        echo "Stage: parallel 1"
                     }
                 }
 
                 stage('parallel 2') {
                     steps {
-                        def current_stage = getCurrentStageName()
-                        echo "Stage: $current_stage"
+                        echo "Stage: parallel 2"
                     }
                 }
                 stage('parallel 3') {
                     steps{
-                        def current_stage = getCurrentStageName()
-                        echo "Stage: $current_stage"
+                        echo "parallel 3"
                     }
                 }
             }
