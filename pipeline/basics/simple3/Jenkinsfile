@@ -32,7 +32,7 @@ pipeline {
             //     expression (return params.RC)
             // }
             steps {
-                echo 'execution conditional-execution $BUILD_NUMBER'
+                echo "execution conditional-execution $BUILD_NUMBER"
             }
         }
     }
