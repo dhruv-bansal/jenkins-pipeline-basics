@@ -1,0 +1,52 @@
+pipeline {
+    
+    agent any
+
+    parameters {
+        booleanParam(name: 'booleanparam', defaultValue: false, description: 'This is sample boolean parameter')
+    }
+
+    environment {
+        VERSION = '0.1.0'
+        VERSION_RC = 'rc.2'
+    }
+
+    stages {
+        stage ('stage1') {
+            environment {
+                VERSION_SUFFIX = getVersionSuffix()
+            }
+
+            steps {
+                echo '$VERSION_SUFFIX'
+            }
+        }
+        stage ('simple-sh-execution') {
+            steps {
+                simpleShExecution()
+            }
+        }
+        stage ('conditional-execution') [
+            when {
+                expression (return param.booleanparam)
+            }
+            steps {
+                echo 'execution conditional-execution $BUILD_NUMBER'
+            }
+        ]
+    }
+}
+
+String getVersionSuffix() {
+    if (params.booleanparam) {
+        return env.VERSION_RC
+    } else {
+        return env.VERSION_RC + '+ci.' + env.BUILD_NUMBER
+    }
+}
+
+void simpleShExecution() {
+    sh '''
+        git version
+    '''
+}
