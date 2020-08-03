@@ -2,7 +2,7 @@ pipeline {
 
     agent any
     parameters {
-        booleanParam(name: 'booleanparam', defaultValue: false, description: 'This is sample boolean parameter')
+        booleanParam(name: 'RC', defaultValue: false, description: 'This is sample boolean parameter')
     }
     environment {
         VERSION = '0.1.0'
@@ -29,7 +29,7 @@ pipeline {
 
         stage ('conditional-execution') {
             when {
-                expression (return params.booleanparam)
+                expression (return params.RC)
             }
             steps {
                 echo 'execution conditional-execution $BUILD_NUMBER'
@@ -39,7 +39,7 @@ pipeline {
 }
 
 String getVersionSuffix() {
-    if (params.booleanparam) {
+    if (params.RC) {
         return env.VERSION_RC
     } else {
         return env.VERSION_RC + '+ci.' + env.BUILD_NUMBER
