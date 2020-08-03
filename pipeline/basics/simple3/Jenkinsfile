@@ -1,6 +1,6 @@
 pipeline {
 
-cof    agent any
+    agent any
     parameters {
         booleanParam(name: 'booleanparam', defaultValue: false, description: 'This is sample boolean parameter')
     }
@@ -47,7 +47,7 @@ String getVersionSuffix() {
 }
 
 void simpleShExecution() {
-    sh '''ß
+    sh '''
         git version
     '''
 }
