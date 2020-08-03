@@ -1,17 +1,16 @@
 pipeline {
-    
-    agent any
 
+    agent any
     parameters {
         booleanParam(name: 'booleanparam', defaultValue: false, description: 'This is sample boolean parameter')
     }
-
     environment {
         VERSION = '0.1.0'
         VERSION_RC = 'rc.2'
     }
 
     stages {
+
         stage ('stage1') {
             environment {
                 VERSION_SUFFIX = getVersionSuffix()
@@ -21,11 +20,13 @@ pipeline {
                 echo '$VERSION_SUFFIX'
             }
         }
+
         stage ('simple-sh-execution') {
             steps {
                 simpleShExecution()
             }
         }
+
         stage ('conditional-execution') [
             when {
                 expression (return param.booleanparam)
@@ -46,7 +47,7 @@ String getVersionSuffix() {
 }
 
 void simpleShExecution() {
-    sh '''
+    sh '''ß
         git version
     '''
 }
