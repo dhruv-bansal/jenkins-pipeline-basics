@@ -29,7 +29,7 @@ pipeline {
 
         stage ('conditional-execution') [
             when {
-                expression (return param.booleanparam)
+                expression (return params.booleanparam)
             }
             steps {
                 echo 'execution conditional-execution $BUILD_NUMBER'
