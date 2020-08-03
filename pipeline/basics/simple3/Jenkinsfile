@@ -1,6 +1,6 @@
 pipeline {
 
-    agent any
+cof    agent any
     parameters {
         booleanParam(name: 'booleanparam', defaultValue: false, description: 'This is sample boolean parameter')
     }
@@ -27,14 +27,14 @@ pipeline {
             }
         }
 
-        stage ('conditional-execution') [
+        stage ('conditional-execution') {
             when {
                 expression (return params.booleanparam)
             }
             steps {
                 echo 'execution conditional-execution $BUILD_NUMBER'
             }
-        ]
+        }
     }
 }
 
