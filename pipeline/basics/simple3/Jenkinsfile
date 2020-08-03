@@ -28,9 +28,9 @@ pipeline {
         }
 
         stage ('conditional-execution') {
-            when {
-                expression (return params.RC)
-            }
+            // when {
+            //     expression (return params.RC)
+            // }
             steps {
                 echo 'execution conditional-execution $BUILD_NUMBER'
             }
