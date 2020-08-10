@@ -29,6 +29,7 @@ pipeline {
                     chmod +x ./pipeline/basics/simple1/test.sh
                     ./pipeline/basics/simple1/test.sh
                  '''
+                 echo "This is value of $SHELL_VARIABLE"
             }
         }
     }
