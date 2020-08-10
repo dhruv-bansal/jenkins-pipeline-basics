@@ -13,7 +13,7 @@ pipeline {
 
             steps {
                 
-                echo "This is first demo piple #BUILD_NUMBER and $DEMO_NUMBER"
+                echo "This is first demo piple $BUILD_NUMBER and $DEMO_NUMBER"
             }
         }
 
@@ -29,6 +29,7 @@ pipeline {
                     chmod +x ./pipeline/basics/simple1/test.sh
                     ./pipeline/basics/simple1/test.sh
                  '''
+                 echo "Printing environment variable defined in shell" + env.SHELL_VARIABLE
                  echo "This is value of $SHELL_VARIABLE"
             }
         }
