@@ -1,0 +1,32 @@
+
+pipeline {
+
+    agent any
+
+    environment {
+        DEMO_NUMBER = 'DEMO-1.1'
+    }
+
+    stages {
+        
+        stage ('stage-1'){
+
+            steps {
+                
+                echo "This is first demo piple $BUILD_NUMBER and $DEMO_NUMBER"
+            }
+        }
+
+        stage ('Reading environment variable defined in shell script') {
+
+            environment {
+                LS = "${sh(script:'./pipeline/basics/simple1/test.sh', returnStdout: true).trim()}"
+            }
+
+            steps {
+                 echo "LS = ${env.LS}"
+            }
+        }
+    }
+}
+
