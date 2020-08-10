@@ -20,7 +20,7 @@ pipeline {
         stage ('Reading environment variable defined in shell script') {
 
             environment {
-                LS = "${sh(script:'./pipeline/basics/simple1/test.sh', returnStdout: true).trim()}"
+                LS = "${sh(script:'chmod +x ./pipeline/basics/simple1/test.sh;./pipeline/basics/simple1/test.sh', returnStdout: true).trim()}"
             }
 
             steps {
