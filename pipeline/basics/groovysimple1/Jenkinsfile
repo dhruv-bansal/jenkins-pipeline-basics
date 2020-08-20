@@ -12,9 +12,11 @@ pipeline {
         stage ('stage-1'){
 
             steps {
-                
-                def string_var = "simplestring"
-                echo "Printing out groovy variable ${string_var}"
+
+                script {
+                    def string_var = "simplestring"
+                    echo "Printing out groovy variable ${string_var}"
+                }
             }
         }
 
