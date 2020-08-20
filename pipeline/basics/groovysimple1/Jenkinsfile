@@ -1,0 +1,23 @@
+
+pipeline {
+
+    agent any
+
+    environment {
+        DEMO_NUMBER = 'DEMO-1.1'
+    }
+
+    stages {
+        
+        stage ('stage-1'){
+
+            steps {
+                
+                def string_var = "simplestring"
+                echo "Printing out groovy variable ${string_var}"
+            }
+        }
+
+    }
+}
+
