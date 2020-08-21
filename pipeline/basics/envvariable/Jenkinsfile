@@ -26,6 +26,7 @@ pipeline {
         stage ('Reading environment variable defined in shell script') {
 
             environment {
+                // environment variables would be initialized in the script file
                 LS = "${sh(script:'chmod +x ./pipeline/basics/envvariable/test.sh;./pipeline/basics/envvariable/test.sh', returnStdout: true).trim()}"
             }
 
