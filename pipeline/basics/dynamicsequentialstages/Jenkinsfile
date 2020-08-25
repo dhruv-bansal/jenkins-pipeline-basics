@@ -26,9 +26,7 @@ pipeline {
         }
 
         stage('Dynamic Stages') {
-            agent {
-                node 'nodename'
-            }
+
             steps {
 
                 script {
