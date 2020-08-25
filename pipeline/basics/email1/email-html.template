@@ -1,0 +1,99 @@
+          <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+            <html>
+            <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+            <title>Build from Jenkisn</title>
+            <style type="text/css">
+            /*base css*/
+            a{color:#4a72af}
+            body{background-color:#e4e4e4}
+            body,p{margin:0;padding:0}
+            img{display:block}
+            h1,h2,h3,h4,h5,h6{margin:0 0 .8em 0}
+            h3{font-size:28px;color:#444!important;font-family:Arial,Helvetica,sans-serif}
+            h4{font-size:22px;color:#4a72af!important;font-family:Arial,Helvetica,sans-serif}
+            h5{font-size:18px;color:#444!important;font-family:Arial,Helvetica,sans-serif}
+            p{font-size:12px;color:#444!important;font-family:"Lucida Grande","Lucida Sans","Lucida Sans Unicode",sans-serif;line-height:1.5}
+            ol li img{display:inline;height:20px}
+            /*div styles*/
+            .news{text-align:center;padding-top:15px;}
+            .content{width:720px;background-color:white;margin-left: auto; margin-right: auto ;}
+            .round_border{margin-bottom:5px;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;margin-top:0;font-size:14px;padding:6px;border:1px solid #ccc}
+            .status{background-color:green;font-size:28px;font-weight:bold;color:white;width:720px;height:52px;margin-bottom:18px;text-align:center;vertical-align:middle;border-collapse:collapse;background-repeat:no-repeat}
+            .status .info{color:white!important;text-shadow:0 -1px 0 rgba(0,0,0,0.3);font-size:32px;line-height:36px;padding:8px 0}
+            .main img{width:38px;margin-right:16px;height:38px}
+            .main table{font-size:14px;}
+            .main table th{text-align:right;}
+            .bottom-message{width:720px;cellpadding:5px;cellspacing:0px}
+            .bottom-message .message{font-size:13px;color:#aaa;line-height:18px;text-align:center}
+            .bottom-message .designed{font-size:13px;color:#aaa;line-height:18px;font-style: italic;text-align:right}
+            img.cartoon {width: 36px; display:inline}
+            </style>
+            </head>
+            <body>
+            <%
+            def envOverrides = it.getAction("org.jenkinsci.plugins.workflow.cps.EnvActionImpl").getOverriddenEnvironment()
+                Name =  envOverrides["Name"]
+                cest = envOverrides["cest"]
+            %>
+                    <div class="news">
+                            <p>
+                            </p>
+                            <br>
+                    </div>
+                    <!-- news -->
+                    <div class="content round_border">
+                            <div class="status">
+                                    <p class="info">The build success </p>
+                            </div>
+                            <!-- status -->
+                            <div class="main round_border">
+                                    <table>
+                                            <tbody>
+                                                    <tr>
+                                                            <th>App:</th>
+                                                            <td>${Name}</td>
+            
+                                                    </tr>
+                                                            <tr>
+                                                            <th>Server Link:</th>
+                                                            <td><a
+                                                                    href="http://localhost:7080/ ">Server-Link</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                            <th>Release Note:</th>
+                                                            <td><a
+                                                                    href="http://localhost:7080/version/1.2.23">Release-Version</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                            <th>Release Time:</th>
+                                                            <td>${cest}</td>
+                                                    </tr>
+                                                    <tr>
+                                                            <th>Notes:</th>
+                                                            <td>During this period server is not available for access. We will keep you informed once the deployment is successful.</td>
+                                                    </tr>
+            
+                                                    <tr>
+                                                            <td colspan="2">&nbsp;</td>
+                                                    </tr>
+                                            </tbody>
+            
+                                    </table>
+            
+                            </div>
+                            <!-- details -->
+                            <div class="round_border"></div>
+                    </div>
+                    <!-- content -->
+            
+                <table class="bottom-message" align="center">
+                            <tr>
+                                    <td>
+                                    <img class="cartoon" src=""/>
+                                    </td>
+                            </tr>
+                    </table>
+                    <!-- bottom message -->
+            </body>
+            </html>
