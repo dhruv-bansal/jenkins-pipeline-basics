@@ -2,6 +2,10 @@ pipeline {
 
     agent none
 
+    parameters {
+        booleanParam(name: 'SIMULATE_ERROR', defaultValue: false, description: '')
+    }
+
     options {
         buildDiscarder(logRotator(daysToKeepStr: '7', numToKeepStr: '1'))
     }
@@ -30,7 +34,8 @@ pipeline {
                 script {
                     for (int i = 0; i < list.size(); i++) {
                         stage(list[i]) {
-                            if (i == 3) {
+
+                            if (params.SIMULATE_ERROR && i == 3) {
                                 throw new Exception("Error in stage 3")
                             }
                             echo "Element: $i"
