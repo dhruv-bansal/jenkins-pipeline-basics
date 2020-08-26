@@ -30,6 +30,9 @@ pipeline {
                 script {
                     for (int i = 0; i < list.size(); i++) {
                         stage(list[i]) {
+                            if (i == 3) {
+                                throw new Exception("Error in stage 3")
+                            }
                             echo "Element: $i"
                         }
                     }
