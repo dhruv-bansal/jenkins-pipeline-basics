@@ -8,9 +8,14 @@ pipeline {
 
     stages {
 
-        stage("Env Variables") {
+        stage('Reading environment variable defined in groovy file') {
+
+            environment {
+                load "./pipeline/basics/extenvvariable/env.groovy"
+            }
             steps {
-                sh "printenv"
+                echo "${env.env_var1}"
+                echo "${env.env_var2}"
             }
         }
 
