@@ -8,6 +8,12 @@ pipeline {
 
     stages {
 
+        stage("Env Variables") {
+            steps {
+                sh "printenv"
+            }
+        }
+
         stage('Reading environment variable defined in groovy file') {
 
             steps {
