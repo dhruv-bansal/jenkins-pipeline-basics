@@ -1,0 +1,3 @@
+#!/bin/sh
+export ENV_VAR1=KEY1=VALUE1;KEY2=VALUE2
+echo ENV_VAR1

@@ -1,0 +1,39 @@
+pipeline {
+
+    agent any
+
+    environment {
+        DEMO_NUMBER = 'DEMO-1.1'
+    }
+
+    stages {
+
+        stage("Env Variables") {
+            steps {
+                sh "printenv"
+            }
+        }
+
+        stage('Reading environment variable defined in shell script') {
+
+            environment {
+                // environment variables would be initialized in the script file
+                LS = "${sh(script: 'chmod +x ./pipeline/basics/envvariable/env.sh;./pipeline/basics/envvariable/env.sh', returnStdout: true).trim()}"
+            }
+
+            steps {
+
+                echo "LS = ${env.ENV_VAR1}"
+            }
+        }
+
+
+        stage("Env Variables") {
+            steps {
+                sh "printenv"
+            }
+        }
+
+    }
+}
+
