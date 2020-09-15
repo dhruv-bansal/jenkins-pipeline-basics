@@ -18,7 +18,7 @@ pipeline {
 
             environment {
                 // environment variables would be initialized in the script file
-                LS = "${sh(script: 'chmod +x ./pipeline/basics/envvariable/env.sh;./pipeline/basics/envvariable/env.sh', returnStdout: true).trim()}"
+                LS = "${sh(script: 'chmod +x ./pipeline/basics/extenvvariable/env.sh;./pipeline/basics/extenvvariable/env.sh', returnStdout: true).trim()}"
             }
 
             steps {
