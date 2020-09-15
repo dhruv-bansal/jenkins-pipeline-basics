@@ -1,7 +1,6 @@
 pipeline {
 
     agent any
-
     environment {
         DEMO_NUMBER = 'DEMO-1.1'
     }
@@ -15,11 +14,8 @@ pipeline {
         }
 
         stage('Reading environment variable defined in groovy file') {
-
             steps {
-
                 script {
-
                     load "./pipeline/basics/extenvvariable/env.groovy"
                     echo "${env.env_var1}"
                     echo "${env.env_var2}"
@@ -27,26 +23,11 @@ pipeline {
             }
         }
 
-        stage('Reading environment variable defined in shell script') {
-
-            environment {
-                // environment variables would be initialized in the script file
-                LS = "${sh(script: 'chmod +x ./pipeline/basics/extenvvariable/env.sh;./pipeline/basics/extenvvariable/env.sh', returnStdout: true).trim()}"
-            }
-
-            steps {
-
-                echo "LS = ${env.ENV_VAR1}"
-            }
-        }
-
-
         stage("Env Variables print") {
             steps {
                 sh "printenv"
             }
         }
-
     }
 }
 
